@@ -1,3 +1,6 @@
+
+This gem owes all its credit to Alex Howard.
+
 ```
 google_map_with_markers({
   element: "map-canvas",    // required: id or dom element object to turn into map
@@ -24,7 +27,7 @@ google_map_with_markers({
 Sample usage  
 
 (in any javascript file)
-
+```
 var loadLocation = function(){
   var i, locations, location, options, marker, map, icon;
 
@@ -48,6 +51,9 @@ var loadLocation = function(){
 
   gmap_with_markers(options);
 };
+```
 
-
-This gem owes all its credit to Alex Howard.
+in application.js
+```
+//= require google_map
+```
