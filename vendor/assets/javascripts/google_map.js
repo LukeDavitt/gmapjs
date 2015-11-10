@@ -229,10 +229,7 @@ function gmap_with_markers(options) {
   };
 
   self.map_init = function() {
-    // luke's own options for this specific map
-    //self.map_options.disableDefaultUI = true;
-
-    self.map_options.zoomControlOptions.style = google.maps.ZoomControlStyle.LARGE;
+        
     self.map = new google.maps.Map(document.getElementById('map-canvas'), self.map_options);
     self.process_markers(options);
 
@@ -271,6 +268,10 @@ function gmap_with_markers(options) {
   if (options.hasOwnProperty('shape') && typeof options.shape === "object" &&
     options.shape.hasOwnProperty('coords') && options.shape.hasOwnProperty('type')) {
     markerOpts.marker_shape = options.shape;
+  }
+
+  if (options.hasOwnProperty('zoomControlOptions:') && typeof options.zoomControlOptions === "object"){
+    self.map_options.zoomControlOptions = options.zoomControlOptions;
   }
 
   if (self.test_options(options)) {
