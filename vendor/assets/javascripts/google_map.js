@@ -165,7 +165,6 @@ function gmap_with_markers(options) {
 
     if (markerData.hasOwnProperty('info') && (typeof markerData.info == 'string' ||
         (typeof markerData.info === 'object' && typeof markerData.info.appendChild === 'function'))) {
-
       infowindow = new google.maps.InfoWindow({
         content: markerData.info
       });
@@ -269,11 +268,13 @@ function gmap_with_markers(options) {
     options.shape.hasOwnProperty('coords') && options.shape.hasOwnProperty('type')) {
     markerOpts.marker_shape = options.shape;
   }
-
-  if (options.hasOwnProperty('zoomControlOptions:') && typeof options.zoomControlOptions === "object"){
-    self.map_options.zoomControlOptions = options.zoomControlOptions;
+  
+  if (options.map_options.hasOwnProperty('zoomControlOptions') && typeof options.map_options.zoomControlOptions === "object"){
+    self.map_options.zoomControlOptions = options.map_options.zoomControlOptions;
   }
-
+  if (options.map_options.hasOwnProperty('scrollwheel') && typeof options.map_options.scrollwheel === "boolean"){
+    self.map_options.scrollwheel = options.scrollwheel;
+  }
   if (self.test_options(options)) {
     self.map_options.center = typeof options.center === 'string' ?
       new google.maps.LatLng(39.50, -98.35) :
